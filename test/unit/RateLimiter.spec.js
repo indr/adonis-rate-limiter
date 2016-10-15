@@ -14,8 +14,8 @@
 const assert = require('chai').assert
 require('co-mocha')
 
-const RateLimit = require('../src/RateLimit')
-const RateLimiter = require('../src/RateLimiter')
+const RateLimit = require('../../src/RateLimit')
+const RateLimiter = require('../../src/RateLimiter')
 
 const RedisStub = {
   * expire () {

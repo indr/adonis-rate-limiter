@@ -16,7 +16,7 @@ class RateLimiterProvider extends ServiceProvider {
 
   * register () {
     this.app.singleton('Adonis/Addons/RateLimiter', function (app) {
-      const redis = app.use('Redis')
+      const redis = app.use('Adonis/Addons/Redis')
       return new RateLimiter(redis)
     })
   }

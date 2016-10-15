@@ -14,7 +14,7 @@
 const assert = require('chai').assert
 require('co-mocha')
 
-const RateLimitExceededException = require('../src/RateLimitExceededException')
+const RateLimitExceededException = require('../../src/RateLimitExceededException')
 
 describe('Unit | RateLimitExceededException', function () {
   it('should set status 429 Too many requests', function () {
