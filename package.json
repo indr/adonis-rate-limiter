@@ -14,7 +14,9 @@
     "type": "git",
     "url": "https://github.com/indr/adonis-rate-limiter.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-exceptions": "^1.0.3"
+  },
   "devDependencies": {
     "adonis-fold": "^3.0.3",
     "adonis-redis": "^1.0.1",
