@@ -1,5 +1,6 @@
 # adonis-rate-limiter
 
+[![npm version](https://badge.fury.io/js/adonis-rate-limiter.svg)](https://badge.fury.io/js/adonis-rate-limiter)
 [![Build Status](https://travis-ci.org/indr/adonis-rate-limiter.svg?branch=master)](https://travis-ci.org/indr/adonis-rate-limiter)
 [![dependencies Status](https://david-dm.org/indr/adonis-rate-limiter/status.svg)](https://david-dm.org/indr/adonis-rate-limiter)
 [![devDependencies Status](https://david-dm.org/indr/adonis-rate-limiter/dev-status.svg)](https://david-dm.org/indr/adonis-rate-limiter?type=dev)
