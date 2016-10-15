@@ -53,7 +53,7 @@ class AuthController {
 }
 ```
 
-If the subject exceeds the maximum number an `RateLimitExceededException` is thrown. The exception contains these properties:
+If the subject exceeds the maximum number a `RateLimitExceededException` is thrown. The exception contains these properties:
 
  * `message`: The action key in the format `{key}-rate-limit-exceeded`, eg. `login-min-rate-limit-exceeded`
  * `secondsToWait`: The number of seconds the subject has to wait until it can perform the action again
@@ -101,6 +101,18 @@ class AutoIpBan {
 }
 
 module.exports = AutoIpBan
+```
+
+You might want to add this middleware to your list of the global middlware just before `Cors`:
+
+```javascript
+// app/Http/kernel.js
+
+const globalMiddleware = [
+  'App/Http/Middleware/AutoIpBan',
+  'Adonis/Middleware/Cors',
+  ...
+]
 ```
 
 ## Copyright and License
