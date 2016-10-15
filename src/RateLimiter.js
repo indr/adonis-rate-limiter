@@ -20,7 +20,7 @@ class RateLimiter {
   /**
    * Get a rate limiter instance
    */
-  rateLimit (subject, key, max, secs) {
+  make (subject, key, max, secs) {
     return new RateLimit(this._redis, subject, key, max, secs)
   }
 
@@ -28,7 +28,7 @@ class RateLimiter {
    * Perform action for given subject
    */
   * perform (subject, key, max, secs) {
-    const rateLimit = this.rateLimit(subject, key, max, secs)
+    const rateLimit = this.make(subject, key, max, secs)
     yield rateLimit.perform()
     return rateLimit
   }

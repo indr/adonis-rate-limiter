@@ -16,7 +16,7 @@ const assert = require('chai').assert
 require('co-mocha')
 
 describe('Unit | RateLimit', function () {
-  it.skip('dummy', function () {
+  it.skip('TODO', function () {
     assert.isTrue(true)
   })
 })

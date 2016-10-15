@@ -43,9 +43,9 @@ describe('Unit | RateLimiter', function () {
     sut = new RateLimiter(RedisStub)
   })
 
-  describe('rateLimit', function () {
+  describe('make', function () {
     it('returns RateLimit instance', function () {
-      const actual = sut.rateLimit('subject', 'key', 1, 1)
+      const actual = sut.make('subject', 'key', 1, 1)
 
       assert.instanceOf(actual, RateLimit)
     })
