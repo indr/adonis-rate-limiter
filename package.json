@@ -8,7 +8,11 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "standard && mocha --recursive"
+    "test": "standard && mocha --recursive --harmony_proxies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/indr/adonis-rate-limiter.git"
   },
   "dependencies": {},
   "devDependencies": {
