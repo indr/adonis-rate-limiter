@@ -10,6 +10,8 @@ Rate limiter for AdonisJs framework using Redis.
 
 ## Installation
 
+In order to use adonis-rate-limiter you need to have [adonis-redis](https://github.com/adonisjs/adonis-redis) installed and configured.
+
 ```
 npm install adonis-rate-limiter --save
 ```
@@ -85,7 +87,7 @@ const RateLimiter = use('RateLimiter')
 class AutoIpBan {
   * handle (request, response, next) {
     const ipAddress = request.request.socket.remoteAddress
-    const minuteLimiter = RateLimiter.make(ipAddress, 'auto-ip-ban-ms', 10, 60)
+    const minuteLimiter = RateLimiter.make(ipAddress, 'auto-ip-ban-min', 10, 60)
     const hourLimiter = RateLimiter.make(ipAddress, 'auto-ip-ban-hr', 60, 3600)
 
     if ((yield minuteLimiter.isUnderLimit()) && (yield hourLimiter.isUnderLimit())) {
@@ -105,7 +107,7 @@ class AutoIpBan {
 module.exports = AutoIpBan
 ```
 
-You might want to add this middleware to your list of the global middlware just before `Cors`:
+You might want to add this middleware to your list of global middlware before `Cors`:
 
 ```javascript
 // app/Http/kernel.js
