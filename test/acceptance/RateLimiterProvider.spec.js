@@ -25,19 +25,32 @@ describe('Acceptance | RateLimiterProvider', function () {
   })
 
   describe('#perform', function () {
-    it('should throw when rate limit is exceeded', function * () {
-      const rateLimiter = fold.Ioc.use('RateLimiter')
-      yield rateLimiter.perform('subject-1', 'key', 2, 5)
-      yield rateLimiter.perform('subject-1', 'key', 2, 5)
-      yield rateLimiter.perform('subject-2', 'key', 2, 5)
+    let sut
+
+    beforeEach(function () {
+      sut = fold.Ioc.use('RateLimiter')
+    })
+
+    it('should throw RateLimitExceededException when rate limit is exceeded', function * () {
+      yield sut.perform('subject-1', 'key', 2, 5)
+      yield sut.perform('subject-1', 'key', 2, 5)
+      yield sut.perform('subject-2', 'key', 2, 5)
+
       try {
-        yield rateLimiter.perform('subject-1', 'key', 2, 5)
+        yield sut.perform('subject-1', 'key', 2, 5)
       } catch (error) {
         assert.equal(error.name, 'RateLimitExceededException')
         assert.equal(error.message, 'key-rate-limit-exceeded')
         assert.equal(error.status, 429)
         assert.isAbove(error.secondsToWait, 4)
       }
+    })
+
+    it('should not throw RateLimitExceededException given subject is 127.0.0.1', function * () {
+      const subject = '127.0.0.1'
+
+      yield sut.perform(subject, 'key', 1, 5)
+      yield sut.perform(subject, 'key', 1, 5)
     })
   })
 })
