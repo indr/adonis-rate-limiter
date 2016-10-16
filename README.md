@@ -117,6 +117,14 @@ const globalMiddleware = [
 ]
 ```
 
+## Changelog
+
+[CHANGELOG](CHANGELOG.md)
+
+## Credits
+
+Thanks to the guys behind [discourse](https://github.com/discourse/discourse) and their implementation of a rate limiter from which I have borrowed a great part.
+
 ## Copyright and License
 
 Copyright (c) 2016 Reto Inderbitzin, [MIT](LICENSE.md) License
